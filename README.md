@@ -29,4 +29,13 @@ This is a Python program that converts CSV files into SQL tables and inserts the
 3. The program will guide you through the process and provide feedback on the actions taken.
 
 ## Example
+Menu:
 
+Execute preliminary (always run 1 first!)
+Create table
+Delete database
+Exit
+Enter your choice: 2
+Enter the path to the CSV file: data.csv
+Enter the name of the new table you want to create: new_table
+Data added successfully!
