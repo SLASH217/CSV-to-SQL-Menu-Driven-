@@ -5,18 +5,18 @@ import mysql.connector as conn
 mycon = conn.connect(host="localhost", user="root", password="1234")
 cursor = mycon.cursor()
 
-current_db = None  # Global variable to store the current database name
+current_db = None  # Global variable to store the current database name #!comment not required.
 
 
 def preliminary():
     """allow user to create their own database or use any existing database"""
-    global current_db  # Access the global variable
+    global current_db  # Access the global variable #!redundent.
 
     name_of_database = input(
         "Enter the name of database you want to create: (enter 'no' to use an existing database): "
-    )
+    ) #!UI not intuetive.
 
-    if name_of_database != "no":
+    if name_of_database != "no": #!avoid using != as much as possible.
         query_create_database = f"create database {name_of_database}"
         cursor.execute(query_create_database)
         query_to_use_new = f"use {name_of_database}"
@@ -24,7 +24,7 @@ def preliminary():
         print("Database created successfully")
         current_db = name_of_database  # Update the current database
         return name_of_database
-    else:
+    else: #!shorten variable name eg: val_for_databaselist -> databaselist, which_existing_database -> existing_database
         val_for_databaselist = list_of_databases_func()
         print(val_for_databaselist)
         which_existing_database = input("Enter the name of your existing database: ")
@@ -40,12 +40,12 @@ def preliminary():
             print("Error! Database not found.")
 
 
-def current_database():
+def current_database(): #!inconsistent way to return data(some functions printing while this returns)
     """Return the name of the current database"""
     return current_db
 
 
-def list_of_databases_func():
+def list_of_databases_func(): #!function not defined in proper order (is called before being defined.)
     """creates a list of databases to be used in other functions"""
     query = "show databases;"
     cursor.execute(query)
@@ -57,7 +57,7 @@ def list_of_databases_func():
     return list_of_databases
 
 
-def delete_database():
+def delete_database(): #!feature not required.
     """allows user option to delete the database they created or any existing database"""
     database_list = list_of_databases_func()
     print(database_list)
@@ -74,10 +74,10 @@ def delete_database():
         print("The entered database does not exist!")
 
 
-def csv_data(file_path):
+def csv_data(file_path): #!Good function.
     """extract data from csv file to convert to sql"""
     formatted_data = []
-    with open(file_path, "r", encoding="utf - 8") as file_obj:
+    with open(file_path, "r", encoding="utf - 8") as file_obj: #?encoding redundent
         csv_data_table = csv.reader(file_obj)
         for i in csv_data_table:
 
@@ -90,7 +90,7 @@ def csv_data(file_path):
                 if value.isdigit():  # If it's a digit (i.e., an integer)
                     formatted_row.append(
                         int(value)
-                    )  # Convert it to an integer and append
+                    )  # Convert it to an integer and append 
                 else:
                     formatted_row.append(
                         value
@@ -176,7 +176,7 @@ def create_table(file_path):
     # now add data to the table structure
 
 
-def newchanges_existingtable_table(file_path):
+def newchanges_existingtable_table(file_path): #!function name too long
     """Append new data from the CSV file to an existing table in the database."""
     existing_table = input("\nEnter the name of the existing table: ").strip()
     query_check_existing = f"select * from {existing_table}"
@@ -200,7 +200,7 @@ def newchanges_existingtable_table(file_path):
 
 
 def main():
-    """main menu based program!"""
+    """main menu based program!""" #!making a cli program so don't need this part
     while True:
         print("\nMenu:")
         print("1. Execute preliminary (always run 1 first!)")
