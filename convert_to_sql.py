@@ -169,11 +169,7 @@ def create_table(file_path):
         newchanges_existingtable_table(file_path)
     else:
         print("Table already exists in the database")
-    # ______________________________________________________________
     # table structure created successfully
-    # -------------------------------------------------------------
-    # --------------------------------------------------------------
-    # now add data to the table structure
 
 
 def newchanges_existingtable_table(file_path):
@@ -181,7 +177,7 @@ def newchanges_existingtable_table(file_path):
     existing_table = input("\nEnter the name of the existing table: ").strip()
     query_check_existing = f"select * from {existing_table}"
     cursor.execute(query_check_existing)
-    existing_data = [list(row) for row in cursor.fetchall()]  # Convert tuples to lists
+    existing_data = [list(row) for row in cursor.fetchall()]  
     csv_data_list = csv_data(file_path)
     new_data_to_insert = []
     for row in csv_data_list[1:]:
