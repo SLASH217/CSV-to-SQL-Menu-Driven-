@@ -55,6 +55,17 @@ pip install psycopg2-binary
 # SQLite is included with Python
 ```
 
+### Quick PostgreSQL Setup with Docker
+```bash
+# Set up PostgreSQL container
+./setup_postgres.sh
+
+# Or manually
+cp .env_postgres.example .env_postgres
+# Edit .env_postgres with your credentials
+docker-compose up -d postgres
+```
+
 ## ⚙️ Configuration
 
 ### Method 1: Configuration File (Recommended)
@@ -66,8 +77,13 @@ cp config.yaml my_config.yaml
 
 ### Method 2: Environment Variables
 ```bash
+# For general use
 cp .env.example .env
 # Edit .env with your database credentials
+
+# For PostgreSQL with Docker
+cp .env_postgres.example .env_postgres
+# Edit .env_postgres with your PostgreSQL credentials
 ```
 
 ### Method 3: Command Line Arguments
