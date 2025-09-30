@@ -1,0 +1,17 @@
+# PostgreSQL Configuration for CSV Converter
+database:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  username: "csvuser"
+  password: "csvpass123"
+  database: "csv_converter"
+
+csv:
+  encoding: "utf-8"
+  chunk_size: 10000
+  max_varchar_length: 255
+
+logging:
+  level: "INFO"
+  file: "csv_converter.log"

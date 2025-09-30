@@ -1,0 +1,9 @@
+name,age,salary,hire_date,is_active,department
+John Doe,28,75000.50,2023-01-15,true,Engineering
+Jane Smith,32,82000.00,2022-08-20,true,Marketing
+Bob Johnson,45,95000.75,2021-03-10,false,Sales
+Alice Brown,29,68000.25,2023-05-22,true,Engineering
+Charlie Wilson,38,88000.00,2020-11-05,true,Marketing
+Diana Davis,26,62000.50,2023-09-12,true,Sales
+Frank Miller,41,105000.00,2019-07-18,true,Engineering
+Grace Lee,33,78000.75,2022-12-03,false,Marketing

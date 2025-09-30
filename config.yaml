@@ -1,0 +1,17 @@
+# CSV to SQL Converter Configuration
+database:
+  type: "mysql"        # mysql, postgresql, sqlite
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: ""         # Set your password here or use environment variables
+  database: "csv_converter"
+
+csv:
+  encoding: "utf-8"
+  chunk_size: 10000
+  max_varchar_length: 255
+
+logging:
+  level: "INFO"
+  file: "csv_converter.log"
